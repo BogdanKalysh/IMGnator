@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">IMGnator</string>
+
+    <string name="screen_center_text">Push</string>
+    <string name="generate_button_text">Next</string>
+    
+    <string name="ask_to_grant_permission_text">Please grant the permission to access photos</string>
+</resources>
