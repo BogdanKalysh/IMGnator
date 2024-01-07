@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="generate_button_text">ще</string>
+    <string name="ask_to_grant_permission_text">Будь ласка, надайте дозвіл для доступу до фото</string>
+    <string name="placeholder_call_to_action">Графіка, Заклик до дії. Натисніть на кнопку внизу.</string>
+    <string name="main_picture_frame">Основне зображення. Тут ми бачимо випадкові фото знайдені на девайсі.</string>
+</resources>

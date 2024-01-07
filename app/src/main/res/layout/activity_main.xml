@@ -11,6 +11,7 @@
 
     <ImageView
         android:id="@+id/placeholder_call_to_action_icon"
+        android:contentDescription="@string/placeholder_call_to_action"
 
         android:layout_width="0dp"
         android:layout_height="150dp"
@@ -35,10 +36,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/generate_button"
 
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:importantForAccessibility="no" />
 
     <ImageView
         android:id="@+id/main_photo_imageview"
+        android:contentDescription="@string/main_picture_frame"
 
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -71,6 +74,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_margin="20dp" />
+        android:layout_margin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

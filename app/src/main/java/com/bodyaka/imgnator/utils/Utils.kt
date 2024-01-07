@@ -22,6 +22,7 @@ object Utils {
             collection,
             arrayOf(
                 MediaStore.Images.Media._ID,
+                MediaStore.Images.Media.RELATIVE_PATH,
                 MediaStore.Images.Media.DISPLAY_NAME
             ),
             null,
@@ -32,8 +33,6 @@ object Utils {
 
     fun getBitmapTopAndBottomAverageColors(bitmap: Bitmap): Pair<Color, Color> {
         val verticalLimit = bitmap.height / 3
-
-        return Color() to Color()
 
         return getAverageColorFromBitmap(bitmap, 0, verticalLimit) to
                 getAverageColorFromBitmap(bitmap, bitmap.height - verticalLimit, bitmap.height)
