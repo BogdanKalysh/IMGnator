@@ -96,7 +96,9 @@ class ImagesViewModel(val contentResolver: ContentResolver): ViewModel() {
         } else {
             val source = ImageDecoder.createSource(contentResolver, imageData.uri)
             try {
-                ImageDecoder.decodeBitmap(source)
+                ImageDecoder.decodeBitmap(source) { decoder, _, _ ->
+                    decoder.allocator = ImageDecoder.ALLOCATOR_SOFTWARE // to make it mutable
+                }
             } catch (e : DecodeException) {
                 Log.e(TAG, "Could not decode image by path: ${imageData.path}")
                 scope.launch {

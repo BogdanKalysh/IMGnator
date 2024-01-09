@@ -7,10 +7,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bodyaka.imgnator.databinding.ActivityMainBinding
-import androidx.activity.viewModels
 import com.bodyaka.imgnator.models.ImagesViewModel
+import com.bodyaka.imgnator.utils.Utils.getGradientDrawableFromBitmap
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,8 +25,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         imagesViewModel.currentImage.observe(this) {
-            Log.e(TAG, "Setting bitmap to ImageView: $it")
             binding.mainPhotoImageview.setImageBitmap(it)
+
+            val gradientBackground = getGradientDrawableFromBitmap(it)
+            val r = resources.getDimension(R.dimen.main_corner_radius)
+            gradientBackground.cornerRadii = FloatArray(8) {r}
+            binding.mainPhotoImageview.background = gradientBackground
 
             if (it != null) {
                 binding.placeholderCallToActionIcon.visibility = View.GONE
@@ -36,6 +41,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.generateButton.setOnClickListener {
             if (isStorageAccessPermissionGranted()) {
+                // TODO When you give the permission manually and come back to app
+                // View model has empty cache, because it didnt know that it had to try to cache again
                 imagesViewModel.updateCurrentImage()
             } else {
                 requestStorageAccessPermissions()

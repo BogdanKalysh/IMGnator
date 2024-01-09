@@ -2,6 +2,5 @@
     <string name="app_name" translatable="false">IMGnator</string>
     <string name="generate_button_text">more</string>
     <string name="ask_to_grant_permission_text">Please grant the permission to access photos</string>
-    <string name="placeholder_call_to_action">Placeholder, call to action. Push the button below.</string>
     <string name="main_picture_frame">Main picture frame. Here we can see random photos found on device.</string>
 </resources>

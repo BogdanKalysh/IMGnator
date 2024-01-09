@@ -4,10 +4,14 @@ import android.content.ContentResolver
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.provider.MediaStore
+import android.util.Log
 
 object Utils {
+    private val TAG = this::class.java.name
+
     fun getMediaStoreImagesCursor(contentResolver: ContentResolver) : Cursor? {
         val collection =
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -31,36 +35,57 @@ object Utils {
         )
     }
 
-    fun getBitmapTopAndBottomAverageColors(bitmap: Bitmap): Pair<Color, Color> {
-        val verticalLimit = bitmap.height / 3
+    fun getGradientDrawableFromBitmap(bitmap: Bitmap): GradientDrawable {
+        val scanHeight = bitmap.height / 10
+        val pixelsContainer = IntArray(bitmap.width * scanHeight)
+        bitmap.getPixels(pixelsContainer, 0, bitmap.width, 0, 0, bitmap.width, scanHeight)
+        val topAverageColor = getAverageColorInt(pixelsContainer)
+        bitmap.getPixels(pixelsContainer, 0, bitmap.width, 0, bitmap.height - scanHeight, bitmap.width, scanHeight)
+        val bottomAverageColor = getAverageColorInt(pixelsContainer)
 
-        return getAverageColorFromBitmap(bitmap, 0, verticalLimit) to
-                getAverageColorFromBitmap(bitmap, bitmap.height - verticalLimit, bitmap.height)
+        Log.e(TAG, "Average colors for gradient: TOP=$topAverageColor, BOTTOM=$bottomAverageColor")
+
+        val shape = GradientDrawable()
+        shape.shape = GradientDrawable.RECTANGLE
+        shape.colors = intArrayOf(topAverageColor, bottomAverageColor)
+
+        return shape
     }
 
-    private fun getAverageColorFromBitmap(bitmap: Bitmap, topLimit: Int, bottomLimit: Int): Color {
+    private fun getAverageColorInt(colors: IntArray): Int {
         var rSum = 0L
         var gSum = 0L
         var bSum = 0L
 
-        val pixelCount = bitmap.width * (bottomLimit - topLimit)
-
-        repeat(bitmap.width) { x ->
-            for (y in topLimit until bottomLimit) {
-                val pixel: Int = bitmap.getPixel(x,y)
-
-                rSum += pixel shr 16 and 0xff
-                gSum += pixel shr 8 and 0xff
-                bSum += pixel and 0xff
-            }
+        for (color in colors) {
+            rSum += color shr 16 and 0xff
+            gSum += color shr 8 and 0xff
+            bSum += color and 0xff
         }
 
-        val colorInt = Color.rgb(
-            (rSum / pixelCount).toInt(),
-            (gSum / pixelCount).toInt(),
-            (bSum / pixelCount).toInt()
-        )
+        val r = (rSum / colors.size).toInt()
+        val g = (gSum / colors.size).toInt()
+        val b = (bSum / colors.size).toInt()
 
-        return Color.valueOf(colorInt)
+        return Color.rgb(r, g, b)
     }
+
+    // Left just as example for future projects
+//    private fun getAverageColor(colors: IntArray): Color {
+//        var rSum = 0L
+//        var gSum = 0L
+//        var bSum = 0L
+//
+//        for (color in colors) {
+//            rSum += color shr 16 and 0xff
+//            gSum += color shr 8 and 0xff
+//            bSum += color and 0xff
+//        }
+//
+//        val r = (rSum / colors.size).toFloat()
+//        val g = (gSum / colors.size).toFloat()
+//        val b = (bSum / colors.size).toFloat()
+//
+//        return Color.valueOf(r, g, b)
+//    }
 }

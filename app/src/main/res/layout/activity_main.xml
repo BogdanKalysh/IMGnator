@@ -11,25 +11,11 @@
 
     <ImageView
         android:id="@+id/placeholder_call_to_action_icon"
-        android:contentDescription="@string/placeholder_call_to_action"
 
         android:layout_width="0dp"
         android:layout_height="150dp"
 
         android:src="@drawable/placeholder_graphic"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/generate_button"
-
-        android:layout_margin="16dp"/>
-
-    <ImageView
-        android:id="@+id/background_gradient_image_view"
-
-        android:layout_width="0dp"
-        android:layout_height="0dp"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +44,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/generate_button"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
 
         android:background="@drawable/main_button_background"
@@ -74,6 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        tools:ignore="VisualLintButtonSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
