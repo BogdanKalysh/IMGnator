@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/ripple_black_transparent"> <!--ripple color-->
+
+    <item android:id="@android:id/mask"> <!--mask for ripple effect-->
+        <shape android:shape="rectangle">
+            <!--need to set color for it to not be transparent-->
+            <solid android:color="@color/white"/>
+            <corners android:radius="@dimen/main_corner_radius" />
+        </shape>
+    </item>
+
+    <!--drawable to leave button background visible-->
+    <item android:drawable="@drawable/main_button_background" />
+</ripple>

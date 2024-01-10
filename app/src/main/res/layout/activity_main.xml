@@ -47,7 +47,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:background="@drawable/main_button_background"
+        android:background="@drawable/button_ripple"
 
         android:text="@string/generate_button_text"
         android:textSize="12sp"

@@ -6,4 +6,6 @@
 
     <color name="purple_light">#E6EAFC</color>
     <color name="yellow_light">#FCF8E6</color>
+
+    <color name="ripple_black_transparent">#33000000</color>
 </resources>
