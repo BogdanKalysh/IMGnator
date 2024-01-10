@@ -33,13 +33,13 @@ class ImagesViewModel(val contentResolver: ContentResolver): ViewModel() {
 
     private val _currentImage: MutableLiveData<Bitmap> = MutableLiveData<Bitmap>()
     val currentImage: LiveData<Bitmap> = _currentImage
+    val isImageDataCached = imagesDataCache.size > 0
 
     init {
         cacheURIsAndBitmaps()
     }
 
     fun updateCurrentImage() {
-        Log.e(TAG, "UPDATE\n")
         if (bitmapsCache.size == 0) {
             Log.i(TAG, "Bitmap queue is empty. Caching bitmap on current thread.")
             cacheNextBitmap()

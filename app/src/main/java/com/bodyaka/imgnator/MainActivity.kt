@@ -40,12 +40,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.generateButton.setOnClickListener {
             if (isStorageAccessPermissionGranted()) {
-                // TODO When you give the permission manually and come back to app
-                // View model has empty cache, because it didnt know that it had to try to cache again
                 imagesViewModel.updateCurrentImage()
             } else {
                 requestStorageAccessPermissions()
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (isStorageAccessPermissionGranted() && !imagesViewModel.isImageDataCached) {
+            imagesViewModel.cacheURIsAndBitmaps()
         }
     }
 
