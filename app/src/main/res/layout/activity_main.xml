@@ -32,7 +32,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
 
-        tools:src="@drawable/ic_launcher_foreground"
         android:scaleType="fitCenter"
 
         app:layout_constraintTop_toTopOf="parent"
@@ -47,20 +46,23 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
+        android:layout_margin="16dp"
+
+        android:layout_marginBottom="16dp"
         android:background="@drawable/button_ripple"
+        android:fontFamily="@font/ibm_plex_mono"
+        android:paddingTop="28dp"
+        android:paddingBottom="28dp"
 
         android:text="@string/generate_button_text"
-        android:textSize="12sp"
+        android:textAllCaps="false"
+
         android:textColor="@color/black"
-
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp"
-
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="VisualLintButtonSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
