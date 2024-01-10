@@ -6,7 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bodyaka.imgnator.databinding.ActivityMainBinding
@@ -78,13 +77,13 @@ class MainActivity : AppCompatActivity() {
             imagesViewModel.cacheURIsAndBitmaps()
         } else {
             Log.v(TAG, "Storage access permission was denied :(")
-            Toast.makeText(this, resources.getString(R.string.ask_to_grant_permission_text),
-                Toast.LENGTH_SHORT).show()
+            PermissionRequestDialogFragment().show(supportFragmentManager, PERMISSION_REQUEST_DIALOG)
         }
     }
 
     companion object {
         val TAG: String = MainActivity::class.java.name
         const val ACCESS_PERMISSION_REQUEST_CODE = 2306
+        const val PERMISSION_REQUEST_DIALOG = "PERMISSION_REQUEST_DIALOG"
     }
 }
