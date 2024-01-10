@@ -10,14 +10,29 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/placeholder_call_to_action_icon"
+        android:id="@+id/call_to_action_text_image"
 
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="45dp"
 
-        android:src="@drawable/placeholder_graphic"
+        android:src="@drawable/push_text_graphic"
 
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/generate_button"
+
+        android:importantForAccessibility="no" />
+
+    <ImageView
+        android:id="@+id/call_to_action_arrow"
+
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        android:src="@drawable/arrow"
+
+        app:layout_constraintTop_toBottomOf="@id/call_to_action_text_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/generate_button"

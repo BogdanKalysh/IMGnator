@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bodyaka.imgnator.databinding.ActivityMainBinding
@@ -30,12 +29,6 @@ class MainActivity : AppCompatActivity() {
             val r = resources.getDimension(R.dimen.main_corner_radius)
             gradientBackground.cornerRadii = FloatArray(8) {r}
             binding.mainPhotoImageview.background = gradientBackground
-
-            if (it != null) {
-                binding.placeholderCallToActionIcon.visibility = View.GONE
-            } else {
-                binding.placeholderCallToActionIcon.visibility = View.VISIBLE
-            }
         }
 
         binding.generateButton.setOnClickListener {

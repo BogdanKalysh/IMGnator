@@ -5,5 +5,5 @@
     <string name="settings_button_text">Налаштування</string>
     <string name="ask_to_grant_permission_text">Будь ласка, надайте дозвіл для доступу до фото</string>
     <string name="main_picture_frame">Основне зображення. Тут ми бачимо випадкові фото знайдені на девайсі.</string>
-    <string name="permission_dialog_text">IMGnator потрібен доступ до ваших даних, щоб показзувати вам випадкові фото. Натисніть Налаштування > Дозволи > оберіть категорію Фото й відео та надайте дозвіл.</string>
+    <string name="permission_dialog_text">IMGnator потрібен доступ до ваших даних, щоб показувати вам випадкові фото. Натисніть Налаштування > Дозволи > оберіть категорію Памʼять та надайте дозвіл.</string>
 </resources>

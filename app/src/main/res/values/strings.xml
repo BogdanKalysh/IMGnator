@@ -5,5 +5,5 @@
     <string name="settings_button_text">Settings</string>
     <string name="ask_to_grant_permission_text">Please grant the permission to access photos</string>
     <string name="main_picture_frame">Main picture frame. Here we can see random photos found on device.</string>
-    <string name="permission_dialog_text">IMGnator needs storage access to show you random photos. Tap Settings > Permissions > choose Photos and videos permission and allow it.</string>
+    <string name="permission_dialog_text">IMGnator needs storage access to show you random photos. Tap Settings > Permissions > choose Storage permission and allow it.</string>
 </resources>
