@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="permission_dialog_text">IMGnator потрібен доступ до ваших даних, щоб показувати вам випадкові фото. Натисніть Налаштування > Дозволи > оберіть категорію Фото й відео та надайте дозвіл.</string>
+    <string name="permission_name">Фото й відео</string>
 </resources>

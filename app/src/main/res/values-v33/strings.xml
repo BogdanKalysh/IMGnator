@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="permission_dialog_text">IMGnator needs storage access to show you random photos. Tap Settings > Permissions > choose Photos and videos permission and allow it.</string>
+    <string name="permission_name">Photos and videos</string>
 </resources>
