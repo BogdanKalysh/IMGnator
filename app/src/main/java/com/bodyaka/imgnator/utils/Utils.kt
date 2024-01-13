@@ -4,10 +4,15 @@ import android.content.ContentResolver
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.provider.MediaStore
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.StyleSpan
 import android.util.Log
+import android.widget.TextView
 
 object Utils {
     private val TAG = this::class.java.name
@@ -68,6 +73,17 @@ object Utils {
         val b = (bSum / colors.size).toInt()
 
         return Color.rgb(r, g, b)
+    }
+
+    fun makePartOfTextViewBold(textView: TextView, textToBald: String) {
+        val ss = SpannableString(textView.text)
+
+        val startIndex = ss.indexOf(textToBald)
+        val endIndex = startIndex + textToBald.length
+
+        ss.setSpan(StyleSpan(Typeface.BOLD), startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        textView.text = ss
     }
 
     // Left just as example for future projects
