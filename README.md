@@ -17,7 +17,6 @@ IMGnator is built using native Android development tools:
 
 - **Android SDK**
 - **View-based UI**
-- **Activity KTX for convenient component handling**
 - **ConstraintLayout for adaptive layouts**
 - **Custom UI Components & Popup Dialogs**
 
